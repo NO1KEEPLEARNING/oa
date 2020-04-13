@@ -1,0 +1,404 @@
+
+.dt-table {
+    border-spacing: 0;
+    /* border: 1px solid #DDDDDD; */
+    border-collapse: collapse;
+}
+
+.dt-table thead tr th {
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+}
+
+.dt-table tbody tr td {
+    border: 1px solid #eee;
+}
+
+.dt-table thead tr th:first-child,
+.dt-table tbody tr td:first-child {
+    border-left: 1px solid #FFFFFF;
+}
+
+.dt-table thead tr th:last-child,
+.dt-table tbody tr td:last-child {
+    border-right: 1px solid #FFFFFF;
+}
+
+.dt-td-left {
+    text-align: left;
+}
+
+.dt-td-right {
+    text-align: right;
+}
+
+.dt-td-center {
+    text-align: center;
+}
+
+.dt-breakWord {
+    word-break: break-all;
+}
+
+.dt-selected-row {
+    background-color: #e6e6e6;
+}
+
+.dt-del-row {
+    display: none;
+}
+
+.dt-tree-row {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.dt-tree-box {
+    float: left;
+    /*border: 1px solid red;*/
+    width: 1rem;
+    height: 100%;
+}
+
+.dt-tree-box-half {
+    float: left;
+    /*border: 1px solid red;*/
+    width: 0.3rem;
+    height: 100%;
+}
+
+.dt-td-text {
+    width: 100%;
+}
+
+.dt-td-select {
+    width: 100%;
+}
+
+.dt-td-date{
+    width: 100%;
+}
+
+.dt-table-content {
+    font-size: 0.6rem;
+}
+
+.dt-td-input-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #b7b8b7;
+}
+
+.dt-td-input {
+    width: 100%;
+    height: 100%;
+    float: left;
+    border: none;
+    border-radius: 3px;
+}
+
+.dt-td-input-icon {
+    height: 100%;
+    float: left;
+    position: absolute;
+    right: 0px;
+    background-color: white;
+    color: #24a5ea;
+    border-left: 1px solid #b7b8b7;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.dt-td-input-icon:hover {
+    background-color: grey;
+    color: white;
+}
+
+/* ------ 按钮 start ----- */
+.dt-btn-group {
+    margin: 0 5px;
+    float: right;
+}
+
+.dt-btn-group .dt-btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dt-btn-group > .dt-btn:last-child:not(:first-child),
+.dt-btn-group > .dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.dt-btn-group > button:nth-child(2),
+.dt-btn-group > button:nth-child(3),
+.dt-btn-group > button:nth-child(4),
+.dt-btn-group > button:nth-child(5),
+.dt-btn-group > button:nth-child(6),
+.dt-btn-group > button:nth-child(7),
+.dt-btn-group > button:nth-child(8),
+.dt-btn-group > button:nth-child(9),
+.dt-btn-group > button:nth-child(10) {
+    border-left: 1px solid rgba(255, 255, 255, .5);
+}
+
+.dt-btn-group > .dt-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+}
+
+.dt-btn {
+    height: 24px;
+    padding: 2px 8px;
+    line-height: 1.29758;
+    font-size: 14px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin-left: -1px;
+}
+
+.dt-btn i {
+    float: left;
+    margin-right: 3px;
+    margin-top: -1px;
+}
+
+.dt-btn-blue {
+    color: #fff;
+    background: #1E9FFF;
+    border-color: #1E9FFF;
+}
+
+.dt-btn-green {
+    color: #fff;
+    background: #009688;
+    border-color: #009688;
+}
+
+.dt-btn-orange {
+    color: #fff;
+    background: #FFB800;
+    border-color: #FFB800;
+}
+
+.dt-btn-red {
+    color: #FFF;
+    background: #FF5722;
+    border-color: #FF5722;
+}
+
+.dt-btn-default {
+    color: #555;
+    background: #fff;
+    border-color: #C9C9C9;
+}
+
+.dt-btn-blue:hover {
+    background: #48B0FC;
+    border-color: #1E9FFF;
+}
+
+.dt-btn-green:hover {
+    background: #30A89D;
+}
+
+.dt-btn-orange:hover {
+    background: #FCC430;
+}
+
+.dt-btn-red:hover {
+    background: #FC764C;
+}
+
+.dt-btn-default:hover {
+    border-color: #009688;
+}
+
+/* ------ 按钮 end ----- */
+
+/* ----- start:盒模型 弹性布局 ----- */
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/*子元素按照在源文档中声明的顺序从上到下显示*/
+.flex-direction-column {
+    -webkit-box-orient: vertical;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+}
+
+/* 子元素自动占据剩余的空间 */
+.flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+/* 水平布局下的子元素 水平居中 */
+.flex-pack-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/* 水平布局下的子元素 垂直居中 */
+.flex-align-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/* 水平布局下的子元素 2端对齐 */
+.flex-pack-justify {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+/* ----- end:盒模型 ----- */
+/* ----- 分页 start ----- */
+.dt-paging-container {
+    border-top: 1px solid #DDDDDD;
+    overflow-x: auto;
+}
+
+.dt-paging-box {
+    min-height: 35px;
+    min-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dt-paging-refresh {
+    height: 26px;
+    padding: 2px 8px;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.dt-paging-select-pages {
+    padding: 2px;
+    height: 26px;
+    border-color: #ccc;
+    border-radius: 4px;
+    color: #5E5E5E;
+    margin-left: 2px;
+}
+
+.dt-paging-select-pages:hover {
+    cursor: pointer;
+    color: #23527C;
+}
+
+.dt-paging-page-size {
+    display: flex;
+    align-items: center;
+}
+
+.dt-paging-pages {
+    height: 26px;
+    display: flex;
+    align-items: center;
+    margin-left: 2px;;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.dt-paging-pages a {
+    min-width: 26.5px;
+    height: 26px;
+    display: block;
+    float: left;
+    color: #5E5E5E;
+    text-decoration: none;
+    border-left: 1px solid #ddd;
+    line-height: 26px;
+}
+
+.dt-paging-total {
+    color: #009688;
+    padding: 2px 8px;
+    border-right: 1px solid #ddd;
+}
+
+.dt-paging-go {
+    width: 32px;
+    height: 20px;
+    margin: 0 2px;
+    padding: 0;
+    text-align: center;
+}
+
+.dt-paging-nums {
+    display: flex;
+}
+
+.dt-paging-num {
+    /* color: #FFFFFF; */
+}
+
+.dt-paging-select-num {
+    color: #FFFFFF !important;
+    background-color: #009688;
+}
+
+.dt-paging-select-num:hover {
+    color: #FFFFFF !important;
+    background-color: #009688 !important;
+}
+
+.dt-paging-refresh:hover,
+.dt-paging-total:hover,
+.dt-paging-first-page:hover,
+.dt-paging-pre-page:hover,
+.dt-paging-next-page:hover,
+.dt-paging-last-page:hover,
+.dt-paging-nums a:hover {
+    background-color: #EEEEEE;
+    color: #23527C;
+    cursor: pointer;
+}
+
+.dt-paging-a-disabled {
+    cursor: not-allowed !important;
+}
+
+/* ----- 分页 end----- */
+
+/* ----- title start----- */
+.dt-title-container {
+    padding: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 24px;
+    padding: 5px 5px;
+    background-color: #F2F2F2;
+}
+
+.dt-title {
+    float: left;
+}
+
+/* ----- title end----- */
+
+/* ----- thead start----- */
+.dt-thead-container {
+    background-color: #FFFFFF;
+}
+
+/* ----- thead end----- */

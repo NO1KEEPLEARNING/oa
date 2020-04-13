@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="shortcut icon" href="./img/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="./oa.css" />
+		<link href="./DataTable/dataTable.css" rel="stylesheet">
+		<script src='./DataTable/dataTable.js?v=1'></script>
+		<script src="./DataTable/laydate/laydate.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1321547_e7m3rlljybj.css">
+		<title>OA表格共通样式</title>
+	</head>
+	<body>
+		<div class="flex flex-1 flex-direction-column oa-page">
+			<!-- 顶部搜索区 -->
+			<div class="oa-header flex">
+				<!-- logo -->
+				<div class="flex oa-logoBox">
+					<div class="oa-upDate">最近数据时间为: <span>2020-02-20</span></div>
+				</div>
+				<div class="flex flex-1 flex-direction-column oa-titleBox" style="height: 100%;margin-right: 1rem;">
+					<div class="flex flex-1 flex-align-items flex-justify-content oa-title">这里是标题</div>
+					<div class="flex flex-1 flex-align-items oa-search">
+						<input type="text" id="" />
+						<button type="button" class="oa-btn" id="oa-search-btn">查询</button>
+						<button type="button" class="oa-btn">操作按钮</button>
+					</div>
+				</div>
+			</div>	
+			<!-- 表格内容区 -->
+			<div class="oa-content flex-1">
+				<div id="myTable" class="flex flex-direction-column" style="height: 100%;">
+				
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			// 表格列
+			var columns = [{
+				name: 'userId',
+				label: 'id',
+				width: 50,
+				align: 'center'
+			}, {
+				name: 'sex',
+				label: '性别',
+				width: 50,
+				align: 'center'
+			}, {
+				name: 'userName',
+				label: '名称',
+				width: 80,
+				align: 'center'
+			}, {
+				name: 'startTime',
+				label: '日期',
+				width: 80,
+				align: 'center',
+				type: 'date',
+				dateType: 'datetime',
+				format: 'yyyy-MM-dd'
+			}, {
+				name: 'memo',
+				label: '备注',
+				width: 200,
+				align: 'center'
+			}];
+			
+			// 表格数据
+			var gridData = [ {
+				userId: "001",
+				sex: "1",
+				userName: "张三",
+				startTime: "2020-04-01",
+				memo: "测试1",
+			}, {
+				userId: "002",
+				sex: "0",
+				userName: "李四",
+				startTime: "2020-04-02",
+				memo: "测试2",
+			}];
+			
+			// 表格参数
+			var opt = {
+			    title: "表格标题",
+			    contentSize: "1rem", // 内容字体大小
+			    columns: columns,
+			    gridData: gridData, // 表格数据，优先级大于dataUrl
+				toolbarItem: '',
+			    paging: {
+			        pageSize: 20,
+			        showPageNum: 4
+			    },
+			    showCheckboxCol: false, // 默认true
+			    showLineNum: true, // 默认true
+			    fullGrid: true, // 默认true
+			};
+			
+			// 初始化表格
+			var table = new DataTable("myTable", opt);
+			table.init();
+			
+			// 查询按钮点击事件
+			document.getElementById("oa-search-btn").onclick = function (ev) {
+				// 点击重载表格标题
+			    table.reload({title: "点击查询后修改标题内容",})
+			}
+		</script>
+	</body>
+</html>

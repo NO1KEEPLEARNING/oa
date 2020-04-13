@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TEST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="dataTable.css" rel="stylesheet">
+    <script src='dataTable.js?v=1'></script>
+    <script src="laydate/laydate.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1321547_e7m3rlljybj.css">
+</head>
+
+<body>
+<button id="btn123">123</button>
+<div style="width: 600px; height: 500px;border: 1px solid red;">
+
+
+    <div style="width: 600px; height: 400px;border: 1px solid #e6e6e6;border-radius: 5px;">
+        <div id="myTable" class="flex flex-direction-column" style="height: 100%;">
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // -------- 不同框架自定义ajax --------
+    // DataTable.prototype.doAjax = function () {
+    //     console.log("这是不同框架自定义的ajax请求");
+    // }
+    // -------- 不同框架自定义ajax --------
+    var columns = [
+        {
+            name: 'userId',
+            label: 'id',
+            width: 50,
+            align: 'left',
+            type: 'text',
+            add: true,
+            edit: function (value, rowData) {
+                console.log("userId.......");
+                console.log(value);
+                console.log(rowData);
+                return false;
+            }
+        }, {
+            name: 'parentUserId',
+            label: 'parent',
+            width: 50,
+            align: 'left',
+            type: 'text'
+        }, {
+            name: 'userName',
+            label: '名称',
+            width: 80,
+            align: 'right'
+        }, {
+            name: 'startTime',
+            label: '日期',
+            width: 80,
+            align: 'right',
+            type: 'date',
+            dateType: 'datetime',
+            format: 'yyyy-MM-dd HH:mm:ss',
+            add: true,
+            edit: function (value, rowData) {
+                console.log(1111);
+                return false;
+            }
+        }, {
+            label: '第一层',
+            columns: [
+                {
+                    label: '第二层1',
+                    columns: [
+                        {
+                            name: 'sex',
+                            label: '第三层1',
+                            width: 80,
+                            align: 'center',
+                            type: 'select',
+                            add: true,
+                            edit: function (value, rowData) {
+                                console.log(1111);
+                                return true;
+                            },
+                            items: [{0: '男'}, {1: '女'}, {2: '未知'}]
+                        },
+                        {
+                            name: 'test2',
+                            label: '第三层2',
+                            sort: true,
+                            width: 80,
+                            align: 'center',
+                            render: function (value, rowData) {
+                                return "<div style='background-color: red;'>" + value + "</div>"
+                            }
+                        }
+                    ]
+                },
+                {
+                    name: 'test3',
+                    label: '第二层2',
+                    width: 80,
+                    align: 'center',
+                    render: function (value, rowData) {
+                        return '<div><div class="dt-td-input-container">' +
+                            '<input type="text" class="dt-td-input">' +
+                            '<div class="dt-td-input-icon">' +
+                            '<i class="iconfont icon-close"></i>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="dt-td-popup" style="display: none;z-index: 999;border: 1px solid red;background-color: lightgreen;position: absolute;">' +
+                            '<div>12313</div>' +
+                            '<div>8888</div>' +
+                            '</div>' +
+                            '</div>';
+                    }
+                }
+            ]
+        }, {
+            name: 'memo',
+            label: '备注',
+            width: 200,
+            align: 'right',
+            sort: true
+        }
+    ];
+
+    var gridData = [
+        {
+            userName: "张三",
+            userId: "001",
+            memo: "这是测试",
+            sex: "1",
+            test2: "aaa",
+            test3: "1",
+        }, {
+            userName: "李四",
+            userId: "002",
+            memo: "哦哦哦",
+            sex: "0",
+            test2: "bbb",
+            test3: "0"
+        }, {
+            userName: "李四",
+            userId: "002",
+            memo: "哦哦哦",
+            sex: "0",
+            test2: "bbb",
+            test3: "0"
+        }, {
+            userName: "李四",
+            userId: "002",
+            memo: "哦哦哦",
+            sex: "0",
+            test2: "bbb",
+            test3: "0"
+        }, {
+            userName: "李四",
+            userId: "002",
+            memo: "哦哦哦",
+            sex: "0",
+            test2: "bbb",
+            test3: "0"
+        }, {
+            userName: "李四",
+            userId: "002",
+            memo: "哦哦哦",
+            sex: "0",
+            test2: "bbb",
+            test3: "0"
+        }];
+
+
+    var opt = {
+        title: "测试表格",
+        contentSize: "0.8rem", // 内容字体大小
+        columns: columns,
+        gridData: gridData, // 表格数据，优先级大于dataUrl
+        // dataUrl: "http://localhost:8080/mes/dt/getGridData2", // 不加dataPrefix
+        // dataUrl: "http://localhost:8080/mes/dt/getGridData", // 加dataPrefix "data.gridDataList"
+        // dataUrl: "http://localhost:8080/mes/dt/getGridPagingData", // 后台分页 "data.gridDataList"
+        dataPrefix: "data.gridDataList", // 自定义数据请求返回结果前缀
+        // local: 'remote', // local前台分页，remote后台分页
+        // treeOptions: {
+        //     key: "userId",
+        //     parentKey: "parentUserId",
+        //     isExpand: false,   // 子列表是否展开
+        // },
+        paging: {
+            pageSize: 8,
+            selectPageSize: '8,4',
+            showPageNum: 4
+        },
+        showCheckboxCol: true, // 默认true
+        showLineNum: true, // 默认true
+        fullGrid: false, // 默认true
+        // maxWidth: 500, // [非必填]最大宽度，超出滚动条显示
+        postData: {
+            name: '哈哈哈'
+        },
+        toolbarItem: "add,edit,del,cancel,save",
+        toolbarCustom: [{
+            icon: "icon-clone", // 前缀icon名称
+            colorClass: "dt-btn-red",
+            text: "哈哈哈",
+            fn: function (tableObj) {
+                console.log(111);
+                console.log(tableObj);
+            }
+        }],
+        beforeGetData: function (postData) {
+            console.log("beforeGetData 执行啦");
+            return true;
+        },
+        afterGetData: function (res) {
+            console.log("afterGetData 执行啦");
+            console.log(res);
+            return true;
+        },
+        afterLoad: function (res) {
+            console.log("afterLoad 执行啦");
+            console.log(res);
+            return true;
+        },
+        delPK: "userId,userName",
+        editPK: "userId,userName,sex,startTime",
+        saveUrl: "http://localhost:8080/mes/dt/save", // 添加、编辑、删除保存方法
+        // savePostData: { type: '111'}, // 保存时post参数：object形式
+        // 保存时post参数：function形式
+        savePostData: function () {
+            var pd = {type: '222'}
+            return pd;
+        },
+        beforeSave: function (postData) {
+            console.log(table.getSelectedTrDatas());
+            console.log("开始保存了");
+            return true;
+        },
+        afterSave: function (res) {
+            console.log("数据保存成功啦");
+            console.log(res);
+        },
+        trStyle: function (rowData) {
+            var styleStr = "";
+            if (rowData.memo == "备注4") {
+                styleStr = "background-color:#1E9FFF;color:white;";
+            } else {
+                styleStr = "";
+            }
+            return styleStr;
+        }
+    };
+    var table = new DataTable("myTable", opt);
+    table.init();
+
+
+    document.getElementById("btn123").onclick = function (ev) {
+        console.log(table.getSelectedTrDatas());
+        table.reload({title: "哈哈哈",})
+    }
+</script>
+
+</body>
+</html>

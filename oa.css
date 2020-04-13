@@ -1,0 +1,156 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.oa-page {
+	height: 100%;
+	background-color: #00bbdd;
+	background: url(./img/body_bg.jpg) repeat top center;
+}
+
+.oa-header {
+	width: 90%;
+	min-width: 980px;
+	max-width: 1800px;
+	height: 100px;
+	margin: 1rem auto 0;
+	background-color: #FFFFFF;
+}
+
+.oa-logoBox {
+	margin-left: 1rem;
+	align-items: flex-end;
+}
+
+.oa-upDate {
+	font-size: 14px;
+	margin-bottom: 1rem;
+	color: #9e9e9e;
+}
+
+.oa-titleBox {
+	height: 100%;
+}
+
+.oa-title {
+	height: 100%;
+	color: #47b5e6;
+	font-size: 28px;
+	font-weight: bold;
+	margin-right: 170px;
+	padding-right: 0.5rem;
+}
+
+.oa-search {
+	justify-content: flex-end;
+}
+
+.oa-search input {
+	width: 140px;
+	height: 28px;
+	line-height: 28px;
+	border: 1px #1b78e4 solid;
+}
+
+.oa-btn {
+	color: #fff;
+	background-color: #20a0ff;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-left: 0.5rem;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	outline: none;
+}
+
+.oa-content {
+	width: 90%;
+	min-width: 980px;
+	max-width: 1800px;
+	margin: 0 auto 1rem ;
+	overflow: auto;
+	background-color: #FFFFFF;
+}
+
+/* .oa-tableBox {
+	overflow-y: overlay;
+}
+
+.oa-table-titleBox,
+.oa-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.oa-table-title {
+	text-align: left;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.oa-table-title span {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.oa-content th,
+.oa-content td {
+	border: 1px solid #d2d2d2;
+	padding: 8px;
+	line-height: 1.5rem;
+}
+
+.oa-table td {
+	color: #474747;
+	text-align: center;
+}
+
+.oa-table tbody:first-child td {
+	border-top: none;
+}
+
+.oa-table tr:hover {
+	color: #FFFFFF;
+	background-color: #6fb2eb;
+} */
+
+/* 弹性布局 */
+.flex {
+	display: flex;
+}
+
+.flex-align-items {
+	align-items: center;
+	-webkit-align-items: center;
+}
+
+.flex-justify-content {
+	justify-content: center;
+	-webkit-justify-content: center;
+}
+
+.flex-direction-column {
+	flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+}
+
+.flex-1 {
+	flex: 1;
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	-moz-box-flex: 1;
+}
